@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "373986490569",
+    "project_id": "comp304sec001-lab4-group14",
+    "storage_bucket": "comp304sec001-lab4-group14.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:373986490569:android:f6734e002f0f106120b518",
+        "android_client_info": {
+          "package_name": "com.colin.melissacolin_comp304sec001_lab4_group14"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "373986490569-pmiemqnaohc5ebt02nnue9e47n2qk91i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWdSm8TYV_qgZMdjHMNKSolttDIOZ9Hc8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "373986490569-pmiemqnaohc5ebt02nnue9e47n2qk91i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
