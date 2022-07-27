@@ -4,7 +4,6 @@ import android.content.Context;
 
 public class BikeRepository {
     private final BikeDao bikeDao;
-
     public BikeRepository(Context context){
         bikeDao = BikeDao.getInstance();
     }
@@ -12,4 +11,5 @@ public class BikeRepository {
     public void insert(Bike bike){
         bikeDao.insert(bike);
     }
+
 }
