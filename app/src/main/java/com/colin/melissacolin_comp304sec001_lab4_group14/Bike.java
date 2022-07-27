@@ -50,4 +50,6 @@ public class Bike {
         this.category = category;
         this.cost = cost;
     }
+
+    public Bike(){}
 }
