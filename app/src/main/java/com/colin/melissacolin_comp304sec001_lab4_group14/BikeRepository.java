@@ -12,4 +12,5 @@ public class BikeRepository {
         bikeDao.insert(bike);
     }
 
+    public void delete(Bike bike){ bikeDao.delete(bike);}
 }

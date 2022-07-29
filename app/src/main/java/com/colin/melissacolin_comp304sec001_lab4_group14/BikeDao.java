@@ -1,18 +1,11 @@
 package com.colin.melissacolin_comp304sec001_lab4_group14;
 
 import android.util.Log;
-
-import androidx.lifecycle.LiveData;
-
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+import androidx.annotation.NonNull;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-
 public class BikeDao {
 
     private static volatile BikeDao INSTANCE;
@@ -36,5 +29,12 @@ public class BikeDao {
         myRef.push().setValue(bike);
     }
 
-
+    public void delete(Bike bike){
+        myRef.child(bike.getKey()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                Log.i("TAG", "Done");
+            }
+        });
+    }
 }

@@ -13,6 +13,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="80dp"
         android:text="Name: "
+        android:editable="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="36dp"
+        android:editable="false"
         android:text="Brand: "
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblBikeName" />
@@ -32,6 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="28dp"
+        android:editable="false"
         android:text="Category: "
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblBrand" />
@@ -42,7 +45,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="32dp"
+        android:editable="false"
         android:text="Cost: "
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblCategory" />
 
@@ -52,7 +57,6 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="164dp"
         android:text="Add Bike"
-        android:onClick="addBike"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

@@ -5,10 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
 
 public class BikeAdapter extends RecyclerView.Adapter<BikeAdapter.MyViewHolder> {
@@ -27,6 +25,10 @@ public class BikeAdapter extends RecyclerView.Adapter<BikeAdapter.MyViewHolder> 
     public BikeAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.bike_item, parent, false);
         return new MyViewHolder(view);
+    }
+
+    public Bike getBikeAtPosition(int position){
+        return bikes.get(position);
     }
 
     @Override

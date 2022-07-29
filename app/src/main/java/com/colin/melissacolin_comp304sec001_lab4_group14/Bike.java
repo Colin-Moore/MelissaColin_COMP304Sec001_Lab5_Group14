@@ -1,6 +1,11 @@
 package com.colin.melissacolin_comp304sec001_lab4_group14;
 
+import com.google.firebase.database.Exclude;
+
+
 public class Bike {
+
+    public String key;
 
     public String name;
 
@@ -11,6 +16,15 @@ public class Bike {
     public double cost;
 
     //Getters and setters
+    @Exclude
+    public String getKey() {
+        return key;
+    }
+    @Exclude
+    public void setKey(String key) {
+        this.key = key;
+    }
+
     public String getName() {
         return name;
     }
@@ -50,6 +64,6 @@ public class Bike {
         this.category = category;
         this.cost = cost;
     }
-
-    public Bike(){}
+    public Bike(){
+    }
 }
