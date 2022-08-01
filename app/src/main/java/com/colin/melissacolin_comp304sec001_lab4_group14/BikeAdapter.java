@@ -7,18 +7,19 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.ArrayList;
 
 public class BikeAdapter extends RecyclerView.Adapter<BikeAdapter.MyViewHolder> {
 
     Context context;
-
     ArrayList<Bike> bikes;
 
     public BikeAdapter(Context context, ArrayList<Bike> bikes){
         this.context = context;
         this.bikes = bikes;
-    }
+     }
+
 
     @NonNull
     @Override
@@ -34,10 +35,11 @@ public class BikeAdapter extends RecyclerView.Adapter<BikeAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull BikeAdapter.MyViewHolder holder, int position) {
         Bike bike = bikes.get(position);
-        holder.brand.setText(bike.getBrand());
-        holder.bikeName.setText(bike.getName());
-        holder.cost.setText(String.valueOf(bike.getCost()));
-        holder.category.setText(bike.getCategory());
+            holder.brand.setText(bike.getBrand());
+            holder.bikeName.setText(bike.getName());
+            holder.cost.setText(String.valueOf(bike.getCost()));
+            holder.category.setText(bike.getCategory());
+
     }
 
     @Override

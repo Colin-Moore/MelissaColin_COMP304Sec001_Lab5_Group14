@@ -5,12 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ViewBikesActivity"
-    android:id="@+id/viewBikeLayout">
+    android:id="@+id/viewBikeLayout"
+    android:background="@color/black">
+
+    <Spinner
+        android:id="@+id/categorySpinner"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="10dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvBikeList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/bike_item"/>
+        android:layout_height="600dp"
+        android:layout_margin="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/categorySpinner"
+
+        tools:listitem="@layout/bike_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

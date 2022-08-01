@@ -41,7 +41,10 @@ public class AddBikeActivity extends AppCompatActivity{
                 validate(txtBrand);
                 validate(txtCost);
                 validate(txtCategory);
-                if (errors == 0) {
+                if(errors > 0){
+                    Toast.makeText(AddBikeActivity.this, R.string.fieldError, Toast.LENGTH_SHORT).show();
+                }
+                else{
                     String bikeName = txtBikeName.getText().toString();
                     String category = txtCategory.getText().toString();
                     String brand = txtBrand.getText().toString();

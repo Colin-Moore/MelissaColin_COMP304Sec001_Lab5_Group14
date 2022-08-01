@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
         android:padding="5dp">
 
         <TextView
@@ -14,8 +16,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="42dp"
-            android:layout_marginTop="18dp"/>
+            android:textSize="8pt"
+            android:textStyle="bold"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp" />
 
         <TextView
             android:id="@+id/txtBrand"
@@ -23,17 +27,16 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtBikeName"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="49dp"
-            android:layout_marginTop="17dp"/>
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"/>
 
         <TextView
             android:id="@+id/txtCost"
-            android:layout_width="127dp"
+            android:layout_width="112dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtBikeName"
-            android:layout_marginStart="66dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="83dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="10dp"
             android:layout_toEndOf="@+id/txtBrand"/>
 
         <TextView
@@ -42,8 +45,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtCost"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="22dp"/>
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp" />
 
     </RelativeLayout>
 
