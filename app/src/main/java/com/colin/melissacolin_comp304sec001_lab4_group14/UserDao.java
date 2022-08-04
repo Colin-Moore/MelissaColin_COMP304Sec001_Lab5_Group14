@@ -48,7 +48,21 @@ public class UserDao {
 
     //public void insert(User user) { myRef.push().setValue(user); }
 
-    public void login(String email, String password) {}
+    public void login(String email, String password) {
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "signInWithEmail: success");
+                            loginSuccess(true);
+                        } else {
+                            Log.w(TAG, "signInWithEmail: failure");
+                            loginSuccess(false);
+                        }
+                    }
+                });
+    }
 
     public void register(String email, String password) {
         mAuth.createUserWithEmailAndPassword(email, password)

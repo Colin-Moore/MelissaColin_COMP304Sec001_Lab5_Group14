@@ -14,32 +14,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
-        android:hint="Enter email"/>
+        android:autofillHints="emailAddress"
+        android:hint="@string/enterEmail"/>
 
     <EditText
         android:id="@+id/editTextPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:hint="Enter password"/>
+        android:autofillHints="password"
+        android:hint="@string/enterPassword"/>
 
     <EditText
         android:id="@+id/editTextConfirmPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:hint="Confirm password"/>
+        android:autofillHints="password"
+        android:hint="@string/confirmPassword"/>
 
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign Up"/>
+        android:text="@string/register"/>
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign In"/>
+        android:text="@string/login"/>
 
 </LinearLayout>
