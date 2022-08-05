@@ -31,6 +31,7 @@ public class ViewBikesActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     BikeViewModel bikeViewModel;
+    UserViewModel userViewModel;
     DatabaseReference database;
     BikeAdapter bikeAdapter;
     ArrayList<Bike> bikes;
@@ -42,6 +43,7 @@ public class ViewBikesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_bikes);
         recyclerView = findViewById(R.id.rvBikeList);
 
+        userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
         bikeViewModel = new ViewModelProvider(this).get(BikeViewModel.class);
 
         bikes = new ArrayList<>(); //initialize bikes List
@@ -147,13 +149,17 @@ public class ViewBikesActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
+        Intent intent;
+
         switch(item.getItemId()){
             case R.id.menuAddBike:
-                Intent intent = new Intent(ViewBikesActivity.this, AddBikeActivity.class);
+                intent = new Intent(ViewBikesActivity.this, AddBikeActivity.class);
                 startActivity(intent);
                 return true;
             case R.id.menuLogout:
-                ///TODO - Log Out
+                userViewModel.logout(); //logout user
+                intent = new Intent(ViewBikesActivity.this, LoginActivity.class);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
