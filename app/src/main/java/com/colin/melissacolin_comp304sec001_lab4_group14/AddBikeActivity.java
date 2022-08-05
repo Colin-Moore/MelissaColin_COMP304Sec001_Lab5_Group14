@@ -24,7 +24,7 @@ public class AddBikeActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_bike);
 
-        BikeViewModel bikeViewModel = new ViewModelProvider(this).get(BikeViewModel.class);
+        BikeViewModel bikeViewModel = new ViewModelProvider(this).get(BikeViewModel.class); //instantiate bikeViewModel
 
         EditText txtBikeName = findViewById(R.id.editTextBikeName);
         EditText txtCategory = findViewById(R.id.editTextCategory);
@@ -33,17 +33,21 @@ public class AddBikeActivity extends AppCompatActivity{
 
         Button btn = findViewById(R.id.btnAddBike);
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        btn.setOnClickListener(new View.OnClickListener() { //handle clicking on Add Bike button
             @Override
             public void onClick(View view) {
                 errors = 0;
+                //validate input fields
                 validate(txtBikeName);
                 validate(txtBrand);
                 validate(txtCost);
                 validate(txtCategory);
+
+                //if any fields aren't filled out, display a message informing the user
                 if(errors > 0){
                     Toast.makeText(AddBikeActivity.this, R.string.fieldError, Toast.LENGTH_SHORT).show();
                 }
+                //if there are no blank fields, add the bike to the database
                 else{
                     String bikeName = txtBikeName.getText().toString();
                     String category = txtCategory.getText().toString();
@@ -56,19 +60,22 @@ public class AddBikeActivity extends AppCompatActivity{
                     } catch (Exception e) {
                         Log.i("TAG", e.toString());
                     }
-                    finish();
+                    finish(); //return to parent activity
                 }
             }
             });
         }
 
-        public void validate(TextView textView){
-        if(textView.getText().toString().isEmpty()){
-            textView.setBackgroundColor(Color.RED);
+        //method to validate input fields
+        public void validate(EditText editText){
+        //if the field is empty, turn the background red and increase the error counter.
+        if(editText.getText().toString().isEmpty()){
+            editText.setBackgroundColor(Color.RED);
             errors++;
         }
+        //if the field is not empty, remove background colour (if any)
         else{
-            textView.setBackgroundColor(Color.TRANSPARENT);
+            editText.setBackgroundColor(Color.TRANSPARENT);
         }
     }
 }

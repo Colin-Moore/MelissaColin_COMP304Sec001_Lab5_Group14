@@ -11,5 +11,6 @@
     <string name="confirmPassword">Confirm Password</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
-
+    <string name="addBike">Add Bike</string>
+    <string name="logout">Log Out</string>
 </resources>

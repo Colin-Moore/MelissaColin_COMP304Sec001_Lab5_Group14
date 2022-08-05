@@ -11,15 +11,14 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
-        android:hint="Add Bike"
+        android:text="@string/addBike"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextCost" />
 
     <EditText
         android:id="@+id/editTextBikeName"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
+        style="@style/EditTextStyles"
         android:layout_marginTop="172dp"
         android:inputType="textPersonName"
         android:hint="Bike Name"
@@ -31,10 +30,9 @@
 
     <EditText
         android:id="@+id/editTextCost"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
+        style="@style/EditTextStyles"
         android:layout_marginTop="8dp"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         android:hint="Bike Cost"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,8 +42,7 @@
 
     <EditText
         android:id="@+id/editTextBrand"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
+        style="@style/EditTextStyles"
         android:layout_marginTop="8dp"
         android:inputType="textPersonName"
         android:hint="Bike Brand"
@@ -57,8 +54,7 @@
 
     <EditText
         android:id="@+id/editTextCategory"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
+        style="@style/EditTextStyles"
         android:layout_marginTop="8dp"
         android:inputType="textPersonName"
         android:hint="Bike Category"

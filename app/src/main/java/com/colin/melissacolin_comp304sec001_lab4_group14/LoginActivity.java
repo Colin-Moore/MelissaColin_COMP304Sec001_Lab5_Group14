@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
                         public void onChanged(@Nullable Boolean result) {
                             if (result) {
                                 Toast.makeText(LoginActivity.this, "Sign in successful!", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                Intent intent = new Intent(LoginActivity.this, ViewBikesActivity.class);
                                 startActivity(intent);
                             } else {
                                 Toast.makeText(LoginActivity.this, "Sign in failed.", Toast.LENGTH_SHORT).show();

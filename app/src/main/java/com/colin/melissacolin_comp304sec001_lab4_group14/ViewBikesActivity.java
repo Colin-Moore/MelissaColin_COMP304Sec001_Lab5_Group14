@@ -8,8 +8,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -39,23 +43,28 @@ public class ViewBikesActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.rvBikeList);
 
         bikeViewModel = new ViewModelProvider(this).get(BikeViewModel.class);
-        bikes = new ArrayList<Bike>(); //initialize bikes List
 
-        categories = new ArrayList<>();
-        categories.add(0, "All Categories");
-        //set up recyclerview
+        bikes = new ArrayList<>(); //initialize bikes List
+        categories = new ArrayList<>(); //initialize category list
+        categories.add(0, "All Categories"); //add default element to the category list
+
+        //get reference to the firebase database
         database = FirebaseDatabase.getInstance().getReference("COMP304Sec001-Lab4 Group14");
 
+        //set up the recyclerview to view bikes
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         bikeAdapter = new BikeAdapter(this, bikes);
         recyclerView.setAdapter(bikeAdapter);
 
+        //set up the spinner to display bike categories for filtering bikes
         Spinner categorySpinner = findViewById(R.id.categorySpinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categories);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         categorySpinner.setAdapter(adapter);
 
+        //selection listener for bike spinner - used to filter bikes by category
+        //this also populates the recyclerview with the list of bikes
         categorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -68,14 +77,16 @@ public class ViewBikesActivity extends AppCompatActivity {
                             if (!categories.contains(bike.category)) {
                                 categories.add(bike.category);
                             }
+                            //if the current spinner selected item is the first item (all categories), add all bikes from the database to the list
                             if (categorySpinner.getSelectedItemPosition() == 0) {
                                 bikes.add(bike);
                             } else {
+                                // if a different category is selected, add only matching bikes to the list
                                 if (bike.category.equals(categorySpinner.getSelectedItem().toString())) {
                                     bikes.add(bike);
                                 }
                             }
-                            bike.setKey(dataSnapshot.getKey());
+                            bike.setKey(dataSnapshot.getKey()); //set the key of the bike (used for deletion from database)
                         }
                         bikeAdapter.notifyDataSetChanged();
                     }
@@ -89,27 +100,33 @@ public class ViewBikesActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                adapterView.setSelection(0);
+                adapterView.setSelection(0); //when spinner is first created, select the first item
             }
         });
 
+        //functionality for recyclerview on-swipe delete
+        //set up itemTouchHelper, specifying which directions to listen for
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
                 return false;
             }
 
+            //Handle swipe on an item in the recyclerview
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                 viewHolder.getAdapterPosition();
-                 Bike bike = bikeAdapter.getBikeAtPosition(viewHolder.getAdapterPosition());
+                viewHolder.getAdapterPosition(); //get the position of the item
+                Bike bike = bikeAdapter.getBikeAtPosition(viewHolder.getAdapterPosition()); // get that bike information
+
+                //prompt the user to verify they want to delete the bike
                 AlertDialog.Builder builder = new AlertDialog.Builder(ViewBikesActivity.this);
                 builder.setMessage(R.string.confirmDelete).setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        bikeViewModel.delete(bike);
+                        bikeViewModel.delete(bike); //delete the bike
                         Toast.makeText(ViewBikesActivity.this, R.string.bikeDeleted, Toast.LENGTH_SHORT).show();
                     }
+                    //if they select no, notify the adapter to repopulate the list (re-add the swiped-off bike to the list)
                 }).setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -118,6 +135,28 @@ public class ViewBikesActivity extends AppCompatActivity {
                 });
                 builder.show();
             };
-        }).attachToRecyclerView(recyclerView);
+        }).attachToRecyclerView(recyclerView); //attach the itemTouchHelper to the recyclerview
+
+
+    }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_items, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch(item.getItemId()){
+            case R.id.menuAddBike:
+                Intent intent = new Intent(ViewBikesActivity.this, AddBikeActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.menuLogout:
+                ///TODO - Log Out
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

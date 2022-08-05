@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+//adapter for the bike activity recyclerview
+
 public class BikeAdapter extends RecyclerView.Adapter<BikeAdapter.MyViewHolder> {
 
     Context context;
@@ -19,7 +21,6 @@ public class BikeAdapter extends RecyclerView.Adapter<BikeAdapter.MyViewHolder> 
         this.context = context;
         this.bikes = bikes;
      }
-
 
     @NonNull
     @Override
@@ -39,7 +40,6 @@ public class BikeAdapter extends RecyclerView.Adapter<BikeAdapter.MyViewHolder> 
             holder.bikeName.setText(bike.getName());
             holder.cost.setText(String.valueOf(bike.getCost()));
             holder.category.setText(bike.getCategory());
-
     }
 
     @Override
