@@ -160,6 +160,7 @@ public class ViewBikesActivity extends AppCompatActivity {
                 userViewModel.logout(); //logout user
                 intent = new Intent(ViewBikesActivity.this, LoginActivity.class);
                 startActivity(intent);
+                finish(); // kill this activity so that it can't be navigated back to after logging out
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

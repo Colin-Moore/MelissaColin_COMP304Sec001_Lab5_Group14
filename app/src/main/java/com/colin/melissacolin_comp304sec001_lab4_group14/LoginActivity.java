@@ -50,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, "Sign in successful!", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(LoginActivity.this, ViewBikesActivity.class);
                                 startActivity(intent);
+                                finish(); //kill this activity so that it can't be navigated back to after logging in
                             } else {
                                 Toast.makeText(LoginActivity.this, "Sign in failed.", Toast.LENGTH_SHORT).show();
                             }
