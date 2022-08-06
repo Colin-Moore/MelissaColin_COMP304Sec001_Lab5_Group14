@@ -17,29 +17,19 @@
 
     <EditText
         android:id="@+id/editTextEmail"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="18dp"
-        android:padding="10dp"
-        android:background="@drawable/custom_input"
         android:drawableStart="@drawable/custom_email_icon"
-        android:drawablePadding="10dp"
         android:inputType="textEmailAddress"
         android:autofillHints="emailAddress"
-        android:hint="@string/enterEmail"/>
+        android:hint="@string/enterEmail"
+        style="@style/EditTextStyles"/>
 
     <EditText
         android:id="@+id/editTextPassword"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="18dp"
-        android:padding="10dp"
-        android:background="@drawable/custom_input"
         android:drawableStart="@drawable/custom_lock_icon"
-        android:drawablePadding="10dp"
         android:inputType="textPassword"
         android:autofillHints="password"
-        android:hint="@string/enterPassword"/>
+        android:hint="@string/enterPassword"
+        style="@style/EditTextStyles"/>
 
     <Button
         android:id="@+id/btnLogin"
@@ -92,7 +82,5 @@
             style="@style/Widget.MaterialComponents.Button.TextButton"/>
 
     </LinearLayout>
-
-
 
 </LinearLayout>

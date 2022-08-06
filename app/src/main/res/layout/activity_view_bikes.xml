@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/viewBikeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewBikesActivity"
-    android:id="@+id/viewBikeLayout"
-    android:background="@color/black">
+    android:layout_margin="20dp"
+    android:orientation="vertical"
+    tools:context=".ViewBikesActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:textSize="9pt"
+        android:text="Select a category:" />
 
     <Spinner
         android:id="@+id/categorySpinner"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="2dp"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="@color/blue_900"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvBikeList"
         android:layout_width="match_parent"
         android:layout_height="600dp"
-        android:layout_margin="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/categorySpinner"
-
+        android:layout_gravity="center_horizontal"
         tools:listitem="@layout/bike_item" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

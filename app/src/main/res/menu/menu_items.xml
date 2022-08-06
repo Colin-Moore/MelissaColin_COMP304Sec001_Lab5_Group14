@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/menuAddBike"
-        android:title="@string/addBike"/>
+    <item
+        android:title=""
+        android:icon="@drawable/ic_more_vert_foreground"
+        app:showAsAction="always">
 
-    <item android:id="@+id/menuLogout"
-        android:title="@string/logout"/>
+        <menu>
+            <item
+                android:id="@+id/menuAddBike"
+                android:icon="@drawable/ic_bike"
+                android:title="@string/addBike"/>
+
+            <item android:id="@+id/menuLogout"
+                android:icon="@drawable/ic_logout"
+                android:title="@string/logout"/>
+        </menu>
+
+    </item>
+
 </menu>

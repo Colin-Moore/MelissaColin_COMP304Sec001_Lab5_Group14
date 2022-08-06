@@ -1,5 +1,6 @@
 package com.colin.melissacolin_comp304sec001_lab4_group14;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -23,6 +24,7 @@ public class AddBikeActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_bike);
+        setTitle("Add Bike");
 
         BikeViewModel bikeViewModel = new ViewModelProvider(this).get(BikeViewModel.class); //instantiate bikeViewModel
 

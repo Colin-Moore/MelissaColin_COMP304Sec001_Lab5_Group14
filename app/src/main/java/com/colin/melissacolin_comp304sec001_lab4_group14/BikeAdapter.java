@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 //adapter for the bike activity recyclerview
@@ -35,10 +36,12 @@ public class BikeAdapter extends RecyclerView.Adapter<BikeAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull BikeAdapter.MyViewHolder holder, int position) {
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+
         Bike bike = bikes.get(position);
             holder.brand.setText(bike.getBrand());
             holder.bikeName.setText(bike.getName());
-            holder.cost.setText(String.valueOf(bike.getCost()));
+            holder.cost.setText(formatter.format(bike.getCost()));
             holder.category.setText(bike.getCategory());
     }
 

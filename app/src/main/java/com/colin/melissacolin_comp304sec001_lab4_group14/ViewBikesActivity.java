@@ -48,12 +48,12 @@ public class ViewBikesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_bikes);
+        setTitle("Available Bikes");
         recyclerView = findViewById(R.id.rvBikeList);
 
+        gsc = GoogleSignIn.getClient(getApplicationContext(), GoogleSignInOptions.DEFAULT_SIGN_IN);
         userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
         bikeViewModel = new ViewModelProvider(this).get(BikeViewModel.class);
-
-        gsc = GoogleSignIn.getClient(getApplicationContext(), GoogleSignInOptions.DEFAULT_SIGN_IN);
 
         bikes = new ArrayList<>(); //initialize bikes List
         categories = new ArrayList<>(); //initialize category list
