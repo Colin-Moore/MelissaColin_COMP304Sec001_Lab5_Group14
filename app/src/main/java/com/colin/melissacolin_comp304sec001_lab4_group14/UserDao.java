@@ -43,6 +43,7 @@ public class UserDao {
         mAuth = FirebaseAuth.getInstance();
     }
 
+    // Create instance of UserDao if it doesn't already exist
     public static UserDao getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new UserDao();
@@ -50,20 +51,27 @@ public class UserDao {
         return INSTANCE;
     }
 
+    // Assign value to login flag based on email/password login success/failure
     private void loginSuccess(boolean login) { flagLogin.postValue(login); }
 
+    // Assign value to Google login flag based on Google login success/failure
     private void loginGoogleSuccess(boolean loginGoogle) { flagLoginGoogle.postValue(loginGoogle); }
 
+    // Assign value to register flag based on registration success/failure
     private void registerSuccess(boolean register) { flagRegister.postValue(register); }
 
+    // Get email/password login attempt result
     public LiveData<Boolean> getLoginResult() { return flagLogin; }
 
+    // Get Google login attempt result
     public LiveData<Boolean> getLoginGoogleResult() { return flagLoginGoogle; }
 
+    // Get registration attempt result
     public LiveData<Boolean> getRegisterResult() { return flagRegister; }
 
     //public void insert(User user) { myRef.push().setValue(user); }
 
+    // Login user via email/password
     public void login(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -80,6 +88,7 @@ public class UserDao {
                 });
     }
 
+    // Login user via Google auth
     public void loginWithGoogle(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
@@ -93,6 +102,7 @@ public class UserDao {
         }
     }
 
+    // Login user to Firebase based on Google auth credentials
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
@@ -110,6 +120,7 @@ public class UserDao {
                 });
     }
 
+    // Register user for account
     public void register(String email, String password) {
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -126,6 +137,7 @@ public class UserDao {
                 });
     }
 
+    // Logout user from Firebase
     public void logout() {
         Log.d(TAG, "Logout Successful");
         loginGoogleSuccess(false); // required for login bug

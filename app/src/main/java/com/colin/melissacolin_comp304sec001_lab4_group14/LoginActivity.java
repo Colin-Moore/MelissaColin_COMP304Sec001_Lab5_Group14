@@ -41,28 +41,30 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
 
-        // Google login
+        /*** GOOGLE LOGIN ***/
+        // Create Google sign in option
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
+        // Create Google sign client
         gsc = GoogleSignIn.getClient(getApplicationContext(), gso);
 
-        // Login to account
+        // Login to account via Google auth
         btnLoginGoogle = findViewById(R.id.btnLoginGoogle);
         btnLoginGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = gsc.getSignInIntent();
-                startActivityForResult(intent, RC_SIGN_IN);
+                startActivityForResult(intent, RC_SIGN_IN); //starts "Sign in with Google" pop-up
             }
         });
 
-        // Email and password login
+        /*** FIREBASE EMAIL AND PASSWORD LOGIN ***/
         userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
 
-        // Login to account
+        // Login to account via email and password
         btnLogin = findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                 // Validate user login credentials
                 Boolean isValid = validateCredentials(email, password);
 
-                // Login user
+                // Login user if credentials are valid
                 if (isValid) {
                     userViewModel.login(email, password);
                     userViewModel.getLoginResult().observe(LoginActivity.this, new Observer<Boolean>() {
