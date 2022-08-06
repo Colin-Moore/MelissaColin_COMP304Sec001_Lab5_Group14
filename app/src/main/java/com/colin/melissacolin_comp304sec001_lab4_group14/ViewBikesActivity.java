@@ -135,6 +135,15 @@ public class ViewBikesActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         bikeViewModel.delete(bike); //delete the bike
+                        //remove the bike from the list
+                        bikes.remove(bike);
+
+                        //check if the category still exists.  if it doesn't exist, go back to the "all categories" selection.
+                        if(bikes.isEmpty()){
+                            categories.remove(bike.category);
+                            categorySpinner.setSelection(0);
+                            bikeAdapter.notifyDataSetChanged();
+                        }
                         Toast.makeText(ViewBikesActivity.this, R.string.bikeDeleted, Toast.LENGTH_SHORT).show();
                     }
                     //if they select no, notify the adapter to repopulate the list (re-add the swiped-off bike to the list)
