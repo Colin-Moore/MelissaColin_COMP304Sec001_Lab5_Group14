@@ -19,6 +19,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,6 +38,7 @@ public class ViewBikesActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     BikeViewModel bikeViewModel;
     UserViewModel userViewModel;
+    GoogleSignInClient gsc;
     DatabaseReference database;
     BikeAdapter bikeAdapter;
     ArrayList<Bike> bikes;
@@ -45,6 +52,8 @@ public class ViewBikesActivity extends AppCompatActivity {
 
         userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
         bikeViewModel = new ViewModelProvider(this).get(BikeViewModel.class);
+
+        gsc = GoogleSignIn.getClient(getApplicationContext(), GoogleSignInOptions.DEFAULT_SIGN_IN);
 
         bikes = new ArrayList<>(); //initialize bikes List
         categories = new ArrayList<>(); //initialize category list
@@ -157,7 +166,14 @@ public class ViewBikesActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case R.id.menuLogout:
-                userViewModel.logout(); //logout user
+                userViewModel.logout(); //logout user through firebase
+                gsc.signOut()
+                        .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                Toast.makeText(ViewBikesActivity.this, "Successfully signed out", Toast.LENGTH_SHORT).show();
+                            }
+                        });
                 intent = new Intent(ViewBikesActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish(); // kill this activity so that it can't be navigated back to after logging out

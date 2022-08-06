@@ -7,6 +7,8 @@
     <string name="confirmDelete">Are you sure you want to delete this bike?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="or">or</string>
+    <string name="logo">BikeWorx_logo</string>
     <string name="enterEmail">Email</string>
     <string name="enterPassword">Password</string>
     <string name="confirmPassword">Re-enter Password</string>

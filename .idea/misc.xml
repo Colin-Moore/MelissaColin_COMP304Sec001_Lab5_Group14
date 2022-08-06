@@ -9,8 +9,16 @@
         <entry key="..\:/MelissaColin_COMP304Sec001_Lab4_Group14/app/src/main/res/layout/bike_item.xml" value="0.33" />
         <entry key="..\:/Users/melis/Documents/School/Centennial/2022/Summer/Mobile App Development - COMP304/Assignments/MelissaColin_COMP304Sec001_Lab4_Group14/app/src/main/res/drawable/custom_email_icon.xml" value="0.244" />
         <entry key="..\:/Users/melis/Documents/School/Centennial/2022/Summer/Mobile App Development - COMP304/Assignments/MelissaColin_COMP304Sec001_Lab4_Group14/app/src/main/res/drawable/custom_input.xml" value="0.244" />
-        <entry key="..\:/Users/melis/Documents/School/Centennial/2022/Summer/Mobile App Development - COMP304/Assignments/MelissaColin_COMP304Sec001_Lab4_Group14/app/src/main/res/layout/activity_login.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/melis/Documents/School/Centennial/2022/Summer/Mobile App Development - COMP304/Assignments/MelissaColin_COMP304Sec001_Lab4_Group14/app/src/main/res/drawable/custom_lock_icon.xml" value="0.244" />
+        <entry key="..\:/Users/melis/Documents/School/Centennial/2022/Summer/Mobile App Development - COMP304/Assignments/MelissaColin_COMP304Sec001_Lab4_Group14/app/src/main/res/drawable/ic_email.xml" value="0.244" />
+        <entry key="..\:/Users/melis/Documents/School/Centennial/2022/Summer/Mobile App Development - COMP304/Assignments/MelissaColin_COMP304Sec001_Lab4_Group14/app/src/main/res/drawable/ic_email_focused.xml" value="0.244" />
+        <entry key="..\:/Users/melis/Documents/School/Centennial/2022/Summer/Mobile App Development - COMP304/Assignments/MelissaColin_COMP304Sec001_Lab4_Group14/app/src/main/res/drawable/ic_lock.xml" value="0.244" />
+        <entry key="..\:/Users/melis/Documents/School/Centennial/2022/Summer/Mobile App Development - COMP304/Assignments/MelissaColin_COMP304Sec001_Lab4_Group14/app/src/main/res/drawable/ic_lock_focused.xml" value="0.244" />
+        <entry key="..\:/Users/melis/Documents/School/Centennial/2022/Summer/Mobile App Development - COMP304/Assignments/MelissaColin_COMP304Sec001_Lab4_Group14/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Users/melis/Documents/School/Centennial/2022/Summer/Mobile App Development - COMP304/Assignments/MelissaColin_COMP304Sec001_Lab4_Group14/app/src/main/res/layout/activity_main.xml" value="0.2234375" />
         <entry key="..\:/Users/melis/Documents/School/Centennial/2022/Summer/Mobile App Development - COMP304/Assignments/MelissaColin_COMP304Sec001_Lab4_Group14/app/src/main/res/layout/activity_register.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/melis/Documents/School/Centennial/2022/Summer/Mobile App Development - COMP304/Assignments/MelissaColin_COMP304Sec001_Lab4_Group14/app/src/main/res/layout/activity_view_bikes.xml" value="0.2234375" />
+        <entry key="..\:/Users/melis/Documents/School/Centennial/2022/Summer/Mobile App Development - COMP304/Assignments/MelissaColin_COMP304Sec001_Lab4_Group14/app/src/main/res/layout/bike_item.xml" value="0.2234375" />
       </map>
     </option>
   </component>
