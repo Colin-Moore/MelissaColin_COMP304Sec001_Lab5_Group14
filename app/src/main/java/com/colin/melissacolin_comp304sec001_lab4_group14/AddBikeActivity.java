@@ -15,7 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class AddBikeActivity extends AppCompatActivity{
+public class AddBikeActivity extends AppCompatActivity {
 
     Bike bike;
     int errors;
@@ -46,11 +46,11 @@ public class AddBikeActivity extends AppCompatActivity{
                 validate(txtCategory);
 
                 //if any fields aren't filled out, display a message informing the user
-                if(errors > 0){
+                if (errors > 0) {
                     Toast.makeText(AddBikeActivity.this, R.string.fieldError, Toast.LENGTH_SHORT).show();
                 }
                 //if there are no blank fields, add the bike to the database
-                else{
+                else {
                     String bikeName = txtBikeName.getText().toString();
                     String category = txtCategory.getText().toString();
                     String brand = txtBrand.getText().toString();
@@ -65,18 +65,18 @@ public class AddBikeActivity extends AppCompatActivity{
                     finish(); //return to parent activity
                 }
             }
-            });
-        }
+        });
+    }
 
-        //method to validate input fields
-        public void validate(EditText editText){
+    //method to validate input fields
+    public void validate(EditText editText) {
         //if the field is empty, turn the background red and increase the error counter.
-        if(editText.getText().toString().isEmpty()){
-            editText.setBackgroundColor(Color.RED);
+        if (editText.getText().toString().isEmpty()) {
+            editText.setError(getString(R.string.fieldErrorMessage));
             errors++;
         }
         //if the field is not empty, remove background colour (if any)
-        else{
+        else {
             editText.setBackgroundColor(Color.TRANSPARENT);
         }
     }

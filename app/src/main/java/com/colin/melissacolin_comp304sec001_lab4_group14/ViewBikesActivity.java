@@ -137,9 +137,8 @@ public class ViewBikesActivity extends AppCompatActivity {
                         bikeViewModel.delete(bike); //delete the bike
                         //remove the bike from the list
                         bikes.remove(bike);
-
                         //check if the category still exists.  if it doesn't exist, go back to the "all categories" selection.
-                        if(bikes.isEmpty()){
+                        if(bikes.isEmpty() || categorySpinner.getSelectedItemPosition() == 0){
                             categories.remove(bike.category);
                             categorySpinner.setSelection(0);
                             bikeAdapter.notifyDataSetChanged();
