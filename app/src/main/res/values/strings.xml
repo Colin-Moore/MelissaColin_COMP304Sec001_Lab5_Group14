@@ -19,4 +19,6 @@
     <string name="register">Register</string>
     <string name="registerHere">Register here</string>
     <string name="logout">Logout</string>
+    <string name="availableBikes">Available Bikes</string>
+    <string name="allCategories">All Categories</string>
 </resources>

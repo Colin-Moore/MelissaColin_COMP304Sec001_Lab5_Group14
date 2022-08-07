@@ -27,16 +27,26 @@ public class BikeDao {
 
     //add bike to database
     public void insert(Bike bike){
-        myRef.push().setValue(bike);
+        try {
+            myRef.push().setValue(bike);
+        }
+        catch (Exception e){
+            Log.i("TAG", e.toString());
+        }
     }
 
     //remove bike from database
     public void delete(Bike bike){
-        myRef.child(bike.getKey()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                Log.i("TAG", "Done");
-            }
-        });
+        try {
+            myRef.child(bike.getKey()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    Log.i("TAG", "Done");
+                }
+            });
+        }
+        catch (Exception e){
+            Log.i("TAG", e.toString());
+        }
     }
 }

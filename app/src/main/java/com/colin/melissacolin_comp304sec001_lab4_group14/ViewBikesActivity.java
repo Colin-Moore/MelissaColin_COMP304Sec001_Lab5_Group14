@@ -48,7 +48,7 @@ public class ViewBikesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_bikes);
-        setTitle("Available Bikes");
+        setTitle(R.string.availableBikes);
         recyclerView = findViewById(R.id.rvBikeList);
 
         gsc = GoogleSignIn.getClient(getApplicationContext(), GoogleSignInOptions.DEFAULT_SIGN_IN);
@@ -57,7 +57,7 @@ public class ViewBikesActivity extends AppCompatActivity {
 
         bikes = new ArrayList<>(); //initialize bikes List
         categories = new ArrayList<>(); //initialize category list
-        categories.add(0, "All Categories"); //add default element to the category list
+        categories.add(0, getString(R.string.allCategories)); //add default element to the category list
 
         //get reference to the firebase database
         database = FirebaseDatabase.getInstance().getReference("COMP304Sec001-Lab4 Group14");
