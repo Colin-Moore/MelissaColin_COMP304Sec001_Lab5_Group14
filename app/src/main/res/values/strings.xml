@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MelissaColin_COMP304Sec001_Lab4_Group14</string>
+    <string name="app_name">MelissaColin_COMP304Sec001_Lab05_Group14</string>
     <string name="fieldErrorMessage">Field cannot be blank</string>
     <string name="fieldError">Please fill out all fields</string>
     <string name="addBike">Add Bike</string>
