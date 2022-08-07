@@ -1,18 +1,14 @@
-package com.colin.melissacolin_comp304sec001_lab4_group14;
+package com.colin.melissacolin_comp304sec001_lab05_group14;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class AddBikeActivity extends AppCompatActivity {

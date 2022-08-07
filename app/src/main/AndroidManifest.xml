@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.colin.melissacolin_comp304sec001_lab4_group14">
+    package="com.colin.melissacolin_comp304sec001_lab05_group14">
 
     <application
         android:allowBackup="true"
@@ -11,13 +11,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MelissaColin_COMP304Sec001_Lab4_Group14"
+        android:theme="@style/Theme.MelissaColin_COMP304Sec001_Lab05_Group14"
         tools:targetApi="31">
         <activity
-            android:name=".RegisterActivity"
+            android:name="com.colin.melissacolin_comp304sec001_lab05_group14.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name="com.colin.melissacolin_comp304sec001_lab05_group14.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,11 +25,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AddBikeActivity"
+            android:name="com.colin.melissacolin_comp304sec001_lab05_group14.AddBikeActivity"
             android:exported="false"
-            android:parentActivityName=".ViewBikesActivity" />
+            android:parentActivityName="com.colin.melissacolin_comp304sec001_lab05_group14.ViewBikesActivity" />
         <activity
-            android:name=".ViewBikesActivity"
+            android:name="com.colin.melissacolin_comp304sec001_lab05_group14.ViewBikesActivity"
             android:exported="false"/>
 
     </application>

@@ -7,7 +7,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.colin.melissacolin_comp304sec001_lab4_group14"
+        applicationId "com.colin.melissacolin_comp304sec001_lab05_group14"
         minSdk 25
         targetSdk 32
         versionCode 1
